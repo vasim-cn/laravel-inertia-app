@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +15,17 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', ['name' => 'Vasim Pathan']);
+    return Inertia::render('Welcome');
+});
+Route::get('/users', function () {
+    return Inertia::render('Users', [
+        'time' => now()->toTimeString()
+    ]);
+});
+Route::get('/settings', function () {
+    return Inertia::render('Settings');
+});
+
+Route::post('/logout', function () {
+    dd('logging the user out');
 });
